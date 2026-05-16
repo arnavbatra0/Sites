@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Briefly, Arnav | Blog</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&family=Caveat:wght@400;700&family=Gochi+Hand&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#f2f20d",
+                "background-light": "#f8f8f5",
+                "background-dark": "#222210",
+              },
+              fontFamily: {
+                "display": ["Spline Sans", "sans-serif"],
+                "handwriting": ["Caveat", "cursive"],
+                "scribble": ["Gochi Hand", "cursive"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        .ruled-paper {
+            background-color: #fff;
+            background-image: 
+                linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+                linear-gradient(#eee .1em, transparent .1em);
+            background-size: 100% 1.5rem;
+        }
+        .paper-shadow {
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.15), 0 1px 4px rgba(0,0,0,0.1);
+        }
+        .sketchbook-cover {
+            background: #f2f20d;
+            background-image: radial-gradient(circle at 2px 2px, rgba(0,0,0,0.05) 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+        .polaroid {
+            background: white;
+            padding: 10px 10px 40px 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        /* Disabled rotate on mobile so they don't clip off screen */
+        @media (min-width: 768px) {
+            .polaroid:hover {
+                transform: rotate(0deg) scale(1.02) !important;
+                z-index: 10;
+            }
+        }
+        .tape {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(2px);
+            width: 80px;
+            height: 25px;
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-2deg);
+        }
+
+        /* 🛑 AGGRESSIVE MOBILE FIXES FOR BLOGGER READER 🛑 */
+        #reader-content {
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+        #reader-content .separator a {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            display: block;
+        }
+        #reader-content img {
+            max-width: 100% !important;
+            height: auto !important;
+            border-radius: 8px;
+            margin: 20px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen sketchbook-cover flex flex-col items-center w-full overflow-x-hidden">
+
+<nav class="w-full max-w-6xl px-4 md:px-8 py-4 md:py-6 flex justify-between items-center z-20 relative">
+    
+    <button onclick="toggleMobileMenu()" class="md:hidden flex items-center gap-1 font-bold uppercase tracking-widest text-[10px] bg-white px-3 py-2 rounded-sm shadow-sm border border-neutral-200 hover:bg-neutral-50 z-50">
+        <span class="material-icons text-sm" id="menu-icon">menu</span> <span id="menu-text">Menu</span>
+    </button>
+
+    <div id="nav-links" class="hidden md:flex flex-col md:flex-row md:items-center absolute md:relative top-16 left-4 right-4 md:left-auto md:right-auto md:top-auto mt-2 md:mt-0 bg-white md:bg-transparent p-6 md:p-0 shadow-2xl md:shadow-none rounded-lg md:rounded-none z-50 gap-6 md:gap-8 text-xs md:text-sm font-medium tracking-tight uppercase border border-neutral-100 md:border-none">
+        
+        <a onclick="closeMobileMenu()" class="hover:underline underline-offset-4 decoration-primary decoration-2 block" href="https://sites.google.com/view/brieflyarnav/archives">Archives</a>
+        
+        <div class="relative group">
+            <button onclick="toggleCategories()" class="flex items-center hover:underline underline-offset-4 decoration-primary decoration-2 w-full text-left py-1 md:py-2">
+                Categories <span id="cat-icon" class="material-icons text-sm ml-1 transition-transform duration-200">expand_more</span>
+            </button>
+            
+            <div id="categories-menu" class="hidden md:block md:absolute left-0 md:top-full md:pt-4 w-full md:w-48 md:opacity-0 md:pointer-events-none md:group-hover:opacity-100 md:group-hover:pointer-events-auto transition-opacity duration-200 z-50 mt-2 md:mt-0 pl-4 md:pl-0 border-l-2 border-primary/30 md:border-none">
+                <div class="md:bg-white md:border border-neutral-200 md:rounded md:shadow-xl">
+                    <ul class="py-2 space-y-4 md:space-y-0 text-xs">
+                        <li><a onclick="closeMobileMenu()" class="block md:px-4 md:py-2 hover:bg-primary/20 text-neutral-600 md:text-neutral-800" href="#">Legal Research</a></li>
+                        <li><a onclick="closeMobileMenu()" class="block md:px-4 md:py-2 hover:bg-primary/20 text-neutral-600 md:text-neutral-800" href="#">Law School Life</a></li>
+                        <li><a onclick="closeMobileMenu()" class="block md:px-4 md:py-2 hover:bg-primary/20 text-neutral-600 md:text-neutral-800" href="#">Personal Essays</a></li>
+                        <li><a onclick="closeMobileMenu()" class="block md:px-4 md:py-2 hover:bg-primary/20 text-neutral-600 md:text-neutral-800" href="#">Gen-Z Culture</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <a onclick="closeMobileMenu()" class="hover:underline underline-offset-4 decoration-primary decoration-2 block" href="#">Experiences</a>
+        <a onclick="closeMobileMenu()" class="hover:underline underline-offset-4 decoration-primary decoration-2 block" href="https://labsbyarnav.blogspot.com/">TPL by Arnav</a>
+        <a onclick="closeMobileMenu()" class="hover:underline underline-offset-4 decoration-primary decoration-2 block" href="https://sites.google.com/view/brieflyarnav/unframed?authuser=1">Unframed</a>
+    </div>
+    
+    <div class="flex items-center space-x-3 md:space-x-6 flex-shrink-0">
+        <button onclick="openSearch()" class="material-icons text-neutral-800 hover:text-black hidden md:block">search</button>
+        <div class="bg-black text-white px-3 py-1.5 md:px-3 md:py-1 rounded text-[10px] md:text-xs font-bold tracking-widest">2026</div>
+    </div>
+</nav>
+
+<main class="w-[95%] sm:w-full max-w-5xl mx-auto mb-10 md:mb-20 relative paper-shadow bg-white rounded-lg overflow-hidden flex flex-col min-h-[90vh]">
+<div class="ruled-paper flex-grow px-4 sm:px-8 md:px-12 pt-10 md:pt-16 pb-12 md:pb-20 relative">
+<header class="mb-12 md:mb-16 text-center relative">
+<div class="inline-block relative w-full md:w-auto">
+<h1 class="font-handwriting text-5xl md:text-7xl text-neutral-900 mb-2 transform -rotate-1">Briefly, Arnav</h1>
+<span class="block font-display text-[9px] md:text-sm uppercase tracking-[0.2em] text-neutral-500 text-center ml-0 md:ml-8 mt-2 md:mt-0">
+                        I OBSERVE THINGS THAT DON'T ADD UP
+                    </span>
+<div class="absolute -right-16 -top-4 font-scribble text-primary-dark opacity-40 transform rotate-12 text-2xl hidden md:block">
+                        *Volume I
+                    </div>
+</div>
+</header>
+
+<section class="mb-16 md:mb-20">
+    <div class="flex justify-between items-end mb-8 md:mb-10">
+        <h2 class="font-handwriting text-3xl md:text-4xl text-neutral-800 underline decoration-primary decoration-4 underline-offset-4">Recent Posts</h2>
+        <a class="text-[10px] md:text-xs font-bold uppercase border-b-2 border-black pb-1 hover:bg-primary transition-colors" href="https://sites.google.com/view/brieflyarnav/archives">View Journal</a>
+    </div>
+    
+    <div id="dynamic-posts" class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 px-2 md:px-4 transition-opacity duration-300 opacity-100">
+        <p class="font-handwriting text-2xl text-neutral-500 text-center col-span-1 md:col-span-3">Fetching the latest briefs...</p>
+    </div>
+
+    <div id="post-reader" class="hidden flex-col items-center bg-white p-4 sm:p-8 md:p-12 paper-shadow border border-neutral-100 w-full max-w-3xl mx-auto rounded-lg relative mt-8 transition-all duration-700 ease-out opacity-0 translate-y-8">
+        <button onclick="closePost()" class="absolute top-2 left-2 md:top-6 md:left-6 bg-primary/20 hover:bg-primary px-3 py-1 md:px-4 md:py-2 rounded font-handwriting text-lg md:text-xl transition-colors text-neutral-800 flex items-center gap-1 md:gap-2">
+            <span class="material-icons text-sm">arrow_back</span> Back
+        </button>
+        <div class="w-full mt-12 md:mt-12">
+            <h1 id="reader-title" class="font-handwriting text-4xl md:text-6xl text-neutral-900 mb-4 leading-none"></h1>
+            <p id="reader-date" class="font-display text-[10px] md:text-xs uppercase tracking-widest text-neutral-400 mb-6 md:mb-10 pb-4 md:pb-6 border-b border-neutral-100"></p>
+            <div id="reader-content" class="font-display text-neutral-800 leading-relaxed space-y-4 md:space-y-6 text-base md:text-lg pb-12 prose max-w-none w-full"></div>
+        </div>
+    </div>
+</section>
+<div class="w-full flex justify-center mt-12 mb-8 pt-8 border-t-2 border-primary/40">
+    <a href="https://sites.google.com/view/brieflyarnav/archives" class="group flex items-center gap-3 no-underline">
+        <span class="font-display font-bold uppercase tracking-[0.3em] text-[10px] text-neutral-400 group-hover:text-black transition-colors">Browse the full archive</span>
+        <div class="h-[1px] w-12 bg-neutral-200 group-hover:w-20 group-hover:bg-primary transition-all duration-300"></div>
+        <span class="material-icons text-neutral-300 group-hover:text-black transition-colors">arrow_forward</span>
+    </a>
+</div>
+
+<section id="bottom-half" class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 border-t-2 border-neutral-100 pt-12 md:pt-16 transition-opacity duration-300">
+    <div class="bg-primary/5 p-6 md:p-8 rounded-xl relative border-2 border-dashed border-primary/40">
+        <div class="absolute -top-4 left-6 bg-primary text-black font-bold text-[10px] md:text-xs uppercase px-2 py-1 md:px-3 md:py-1 rotate-[-2deg]">Featured</div>
+        <h2 class="font-handwriting text-3xl mb-6">Must Reads</h2>
+        
+        <ul id="dynamic-must-reads" class="space-y-6">
+            <li class="font-handwriting text-xl text-neutral-500">Shuffling the archives...</li>
+        </ul>
+    </div>
+
+    <div class="space-y-6 md:space-y-8">
+        <h2 class="font-handwriting text-3xl underline decoration-neutral-300 underline-offset-8 decoration-2">The Docket</h2>
+        
+        <div class="bg-white p-4 md:p-6 shadow-sm border border-neutral-200 transform md:rotate-1 hover:rotate-0 transition-transform cursor-pointer group">
+            <div class="flex items-start space-x-4">
+                <div class="bg-primary h-10 w-10 md:h-12 md:w-12 flex-shrink-0 flex items-center justify-center font-display font-bold text-xl md:text-2xl transition-transform duration-300 group-hover:scale-110">§</div>
+                <div>
+                    <span class="block font-display text-[9px] md:text-[10px] uppercase tracking-widest text-neutral-400 mb-1">Evidence Locker</span>
+                    <h4 class="font-display font-bold leading-tight text-sm md:text-base"> Something is being filed here</h4>
+                    <p class="text-[10px] md:text-xs text-neutral-500 mt-1 md:mt-2"> Check back soon</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-white p-4 md:p-6 shadow-sm border border-neutral-200 transform md:-rotate-1 hover:rotate-0 transition-transform cursor-pointer group">
+            <div class="flex items-start space-x-4">
+                <div class="bg-neutral-100 h-10 w-10 md:h-12 md:w-12 flex-shrink-0 flex items-center justify-center font-scribble text-xl md:text-2xl transition-transform duration-300 group-hover:scale-110"><span class="font-sans font-bold text-neutral-700">&lt;/&gt;</span></div>
+                <div>
+                    <span class="block font-display text-[9px] md:text-[10px] uppercase tracking-widest text-neutral-400 mb-1">Active Case</span>
+                    <h4 class="font-display font-bold leading-tight text-sm md:text-base">Project: Briefly, Arnav </h4>
+                    <p class="text-[10px] md:text-xs text-neutral-500 mt-1 md:mt-2">Observing things that don't add up • Ongoing</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="relative pt-2 md:pt-4">
+            <div class="bg-primary/20 p-3 md:p-4 rounded-lg flex items-center justify-between border border-primary/30">
+                <div>
+                    <span class="block font-display text-[9px] md:text-[10px] uppercase tracking-widest text-neutral-500 mb-1">Current Status</span>
+                    <span class="font-handwriting text-lg md:text-xl text-neutral-800">Between chapters...</span>
+                </div>
+                <span class="material-icons text-neutral-600 animate-pulse text-xl md:text-2xl">hourglass_bottom</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="absolute bottom-8 right-12 opacity-20 transform rotate-12 pointer-events-none hidden md:block">
+<img class="w-24" data-alt="Paperclip resting on paper" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbIpzlkoy3N70FHNnVdXVyvl2ULtojUfrL1VLuPLkpqcybp2vKh0UaFDeE9R0JEmZzoIQMKcf9xmnppKYoK59JUJ8tUNZePI72Gj-bTDiv3CsRAy18XMkFotYygHryWy5ARHchE8DsRuGpoQos4IELi3idc2njmqi_emFM2If0X8DkgE4dBhsvDIH_uDdiz4ESDONJNT2VDyF9ko_-PxDpQFAvgkf45g673fY2ET5JICVYepr47aXKCM72fwin16LKTkBZh8k_z4s"/>
+</div>
+</div>
+
+<footer class="bg-neutral-50 border-t border-neutral-200 py-8 md:py-12 px-6 md:px-12">
+<div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+<div class="flex flex-wrap justify-center gap-4 md:space-x-8 text-[10px] md:text-xs font-bold uppercase tracking-widest text-neutral-600">
+    <a class="hover:text-black transition-colors" href="https://sites.google.com/view/brieflyarnav/homepage">Home</a>
+    <a class="hover:text-black transition-colors" href="https://sites.google.com/view/brieflyarnav/archives">Archives</a>
+    <a class="hover:text-black transition-colors" href="https://sites.google.com/view/brieflyarnav/aboutme">About Me</a>
+    <a class="hover:text-black transition-colors" href="https://www.linkedin.com/in/arnav-batra0/">Connect</a>
+<a class="hover:text-black transition-colors" href="https://sites.google.com/view/brieflyarnav/privacy-policy">Privacy Policy</a>
+</div><div class="text-center md:text-right">
+<p class="font-handwriting text-xl md:text-2xl text-neutral-800">Briefly, Arnav</p>
+<p class="text-[8px] md:text-[10px] uppercase tracking-tighter text-neutral-400 mt-1">A Small Thing by Arnav Batra © 2026</p>
+</div>
+</div>
+</footer>
+</main>
+
+<div class="fixed left-8 top-1/2 -translate-y-1/2 hidden xl:block pointer-events-none">
+<div class="bg-primary p-6 w-48 shadow-lg transform -rotate-6 pointer-events-auto">
+<h5 class="font-handwriting text-xl mb-2">Subscribe?</h5>
+<p class="text-[10px] uppercase font-bold text-neutral-700 leading-tight mb-4">Get law notes & life rants in your inbox.</p>
+<div class="relative">
+<input class="w-full bg-white/50 border-none text-xs p-2 placeholder:text-neutral-500 focus:ring-0" placeholder="Email..." type="email"/>
+<button class="absolute right-1 top-1 text-black font-bold">
+<span class="material-icons text-sm">send</span>
+</button>
+</div>
+</div>
+</div>
+<div id="search-overlay" class="fixed inset-0 bg-neutral-900/60 backdrop-blur-sm z-[100] hidden opacity-0 transition-opacity duration-200 flex items-start justify-center pt-[15vh] px-4" onclick="if(event.target === this) closeSearch()">
+    <div class="bg-white w-full max-w-2xl rounded-xl shadow-2xl overflow-hidden flex flex-col transform scale-95 transition-transform duration-200" id="search-modal">
+        
+        <div class="flex items-center px-4 md:px-6 py-4 border-b border-neutral-100">
+            <span class="material-icons text-neutral-400 text-2xl mr-3">search</span>
+            <input type="text" id="search-input" oninput="performSearch()" placeholder="Search briefs, notes, and observations..." class="w-full bg-transparent border-none focus:ring-0 text-lg md:text-xl font-display text-neutral-800 placeholder-neutral-400 p-0" autocomplete="off">
+            <button onclick="closeSearch()" class="text-[10px] font-bold uppercase tracking-widest text-neutral-500 hover:text-black ml-3 bg-neutral-100 hover:bg-primary px-2 py-1 rounded transition-colors">ESC</button>
+        </div>
+        
+        <div id="search-results" class="max-h-[50vh] overflow-y-auto hidden"></div>
+        
+        <div id="search-empty" class="p-8 text-center hidden bg-neutral-50">
+            <p class="font-handwriting text-2xl text-neutral-500">No briefs found for that.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    let globalPosts = [];
+
+   function buildPolaroids(data) {
+        const gridContainer = document.getElementById("dynamic-posts");
+        const listContainer = document.getElementById("dynamic-must-reads");
+        
+        gridContainer.innerHTML = ""; 
+        if(listContainer) listContainer.innerHTML = "";
+
+        globalPosts = data.feed.entry;
+
+        if (!globalPosts || globalPosts.length === 0) {
+            gridContainer.innerHTML = "<p class='font-handwriting text-2xl text-neutral-500 text-center col-span-1 md:col-span-3'>No briefs published yet. The desk is clean!</p>";
+            if(listContainer) listContainer.innerHTML = "<p class='font-display text-sm text-neutral-500'>No archives found.</p>";
+            return; 
+        }
+
+        const recentPosts = globalPosts.slice(0, 3);
+        const rotations = ["-rotate-2", "rotate-1", "rotate-3"];
+
+        recentPosts.forEach((post, index) => {
+            const title = post.title.$t;
+            const publishedDate = new Date(post.published.$t);
+            const dateString = publishedDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+            let imgUrl = "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80"; 
+            if (post.media$thumbnail) {
+                imgUrl = post.media$thumbnail.url.replace('/s72-c/', '/s600/'); 
+            }
+
+            const polaroidHTML = `
+            <div class="relative group cursor-pointer" onclick="openPost(${index})">
+                <div class="block polaroid transform ${rotations[index]} hover:z-20">
+                    <div class="tape scale-75 md:scale-100"></div>
+                    <img class="w-full aspect-square object-cover mb-3 md:mb-4 grayscale group-hover:grayscale-0 transition-all duration-500" src="${imgUrl}">
+                    <h3 class="font-handwriting text-xl md:text-2xl leading-tight px-1 md:px-2 text-neutral-900">${title}</h3>
+                    <p class="font-display text-[9px] md:text-[10px] uppercase tracking-widest text-neutral-400 mt-1 md:mt-2 px-1 md:px-2">${dateString}</p>
+                </div>
+            </div>
+            `;
+            gridContainer.innerHTML += polaroidHTML;
+        });
+
+        if(listContainer) {
+            // 🛑 THE FIX IS HERE: Added .slice() to the fallback to force a copy!
+            let olderPosts = globalPosts.length > 3 ? globalPosts.slice(3) : globalPosts.slice(); 
+            olderPosts.sort(() => 0.5 - Math.random());
+            const randomMustReads = olderPosts.slice(0, 3);
+
+            randomMustReads.forEach((post, i) => {
+                const title = post.title.$t;
+                let category = "Archive";
+                if (post.category && post.category.length > 0) {
+                    category = post.category[0].term;
+                }
+
+                const globalIndex = globalPosts.indexOf(post);
+                const num = String(i + 1).padStart(2, '0');
+
+                const liHTML = `
+                <li class="group cursor-pointer" onclick="openPost(${globalIndex})">
+                    <div class="block">
+                        <span class="block font-display text-[9px] md:text-[10px] uppercase tracking-widest text-neutral-400 mb-1">${num} / ${category}</span>
+                        <h4 class="font-display font-semibold group-hover:bg-primary transition-colors inline text-base md:text-lg">${title}</h4>
+                    </div>
+                </li>
+                `;
+                listContainer.innerHTML += liHTML;
+            });
+        }
+    }
+
+    function openPost(index) {
+        const post = globalPosts[index];
+        const grid = document.getElementById("dynamic-posts");
+        const reader = document.getElementById("post-reader");
+        const bottomSection = document.getElementById("bottom-half");
+        
+        document.getElementById("reader-title").innerText = post.title.$t;
+        const publishedDate = new Date(post.published.$t);
+        document.getElementById("reader-date").innerText = publishedDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        document.getElementById("reader-content").innerHTML = post.content.$t;
+
+        grid.classList.remove("opacity-100");
+        grid.classList.add("opacity-0");
+        if(bottomSection) bottomSection.classList.add("opacity-0");
+
+        setTimeout(() => {
+            grid.classList.add("hidden");
+            if(bottomSection) bottomSection.classList.add("hidden");
+            
+            reader.classList.remove("hidden");
+            reader.classList.add("flex");
+            void reader.offsetWidth; 
+            
+            reader.classList.remove("opacity-0", "translate-y-8");
+            reader.classList.add("opacity-100", "translate-y-0");
+            
+            reader.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 300);
+    }
+
+    function closePost() {
+        const grid = document.getElementById("dynamic-posts");
+        const reader = document.getElementById("post-reader");
+        const bottomSection = document.getElementById("bottom-half");
+
+        reader.classList.remove("opacity-100", "translate-y-0");
+        reader.classList.add("opacity-0", "translate-y-8");
+
+        setTimeout(() => {
+            reader.classList.add("hidden");
+            reader.classList.remove("flex");
+            
+            grid.classList.remove("hidden");
+            if(bottomSection) bottomSection.classList.remove("hidden");
+            
+            void grid.offsetWidth;
+            
+            grid.classList.remove("opacity-0");
+            grid.classList.add("opacity-100");
+            if(bottomSection) bottomSection.classList.remove("opacity-0");
+            
+            grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 500); 
+    }
+</script>
+
+<script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('nav-links');
+        const icon = document.getElementById('menu-icon');
+        const text = document.getElementById('menu-text');
+
+        if (menu.classList.contains('hidden')) {
+            menu.classList.remove('hidden');
+            menu.classList.add('flex');
+            icon.innerText = 'close';
+            text.innerText = 'Close';
+        } else {
+            closeMobileMenu();
+        }
+    }
+
+    function closeMobileMenu() {
+        const menu = document.getElementById('nav-links');
+        const icon = document.getElementById('menu-icon');
+        const text = document.getElementById('menu-text');
+
+        // Only trigger if we are on a mobile screen
+        if (window.innerWidth < 768) {
+            menu.classList.add('hidden');
+            menu.classList.remove('flex');
+            icon.innerText = 'menu';
+            text.innerText = 'Menu';
+            
+            // Clean up: Reset the categories dropdown so it's closed next time
+            document.getElementById('categories-menu').classList.add('hidden');
+            document.getElementById('cat-icon').classList.remove('rotate-180');
+        }
+    }
+
+    function toggleCategories() {
+        // Only trigger the click-to-open logic on mobile screens
+        if (window.innerWidth < 768) {
+            const catMenu = document.getElementById('categories-menu');
+            const catIcon = document.getElementById('cat-icon');
+            
+            if (catMenu.classList.contains('hidden')) {
+                catMenu.classList.remove('hidden');
+                catIcon.classList.add('rotate-180'); // Flips the arrow upside down!
+            } else {
+                catMenu.classList.add('hidden');
+                catIcon.classList.remove('rotate-180'); // Flips it back
+            }
+        }
+    }
+function openSearch() {
+        const overlay = document.getElementById('search-overlay');
+        const modal = document.getElementById('search-modal');
+        const input = document.getElementById('search-input');
+        
+        overlay.classList.remove('hidden');
+        // Tiny delay so the animation triggers smoothly
+        setTimeout(() => {
+            overlay.classList.remove('opacity-0');
+            modal.classList.remove('scale-95');
+            input.focus();
+        }, 10);
+        
+        // Listen for the Escape key to close it
+        document.addEventListener('keydown', handleEsc);
+    }
+
+    function closeSearch() {
+        const overlay = document.getElementById('search-overlay');
+        const modal = document.getElementById('search-modal');
+        const input = document.getElementById('search-input');
+        
+        overlay.classList.add('opacity-0');
+        modal.classList.add('scale-95');
+        
+        setTimeout(() => {
+            overlay.classList.add('hidden');
+            input.value = '';
+            document.getElementById('search-results').innerHTML = '';
+            document.getElementById('search-results').classList.add('hidden');
+            document.getElementById('search-empty').classList.add('hidden');
+        }, 200);
+        
+        document.removeEventListener('keydown', handleEsc);
+    }
+
+    function handleEsc(e) {
+        if (e.key === 'Escape') closeSearch();
+    }
+
+    function performSearch() {
+        const query = document.getElementById('search-input').value.toLowerCase().trim();
+        const resultsContainer = document.getElementById('search-results');
+        const emptyState = document.getElementById('search-empty');
+        
+        if (query.length === 0) {
+            resultsContainer.classList.add('hidden');
+            emptyState.classList.add('hidden');
+            return;
+        }
+
+        // Filter through your global memory
+        let matches = [];
+        globalPosts.forEach((post, index) => {
+            const title = post.title.$t.toLowerCase();
+            const content = post.content.$t.toLowerCase();
+            if (title.includes(query) || content.includes(query)) {
+                matches.push({ post, index });
+            }
+        });
+
+        // Display the results
+        if (matches.length > 0) {
+            let html = '<ul class="py-2">';
+            matches.forEach(match => {
+                const postTitle = match.post.title.$t;
+                html += `
+                    <li>
+                        <button onclick="triggerPostFromSearch(${match.index})" class="w-full text-left px-6 py-4 hover:bg-primary/10 transition-colors border-l-4 border-transparent hover:border-primary group">
+                            <h4 class="font-display font-bold text-neutral-800 group-hover:text-black">${postTitle}</h4>
+                        </button>
+                    </li>
+                `;
+            });
+            html += '</ul>';
+            
+            resultsContainer.innerHTML = html;
+            resultsContainer.classList.remove('hidden');
+            emptyState.classList.add('hidden');
+        } else {
+            resultsContainer.classList.add('hidden');
+            emptyState.classList.remove('hidden');
+        }
+    }
+
+    function triggerPostFromSearch(index) {
+        closeSearch();
+        setTimeout(() => {
+            openPost(index);
+        }, 300); // Waits for the search to visually close before opening the post
+    }
+</script>
+<script src="https://brieflyarnav.blogspot.com/feeds/posts/default?alt=json-in-script&callback=buildPolaroids&max-results=10"></script>
+</body></html>

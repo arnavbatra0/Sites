@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>About | Briefly, Arnav</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&family=Cedarville+Cursive&family=Special+Elite&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f2f20d",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#222210",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"],
+                        "handwriting": ["Cedarville Cursive", "cursive"],
+                        "typewriter": ["Special Elite", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .ruled-paper {
+            background-color: #fcfcfc;
+            background-image: linear-gradient(#e5e7eb 1px, transparent 1px);
+            background-size: 100% 2rem;
+            line-height: 2rem;
+        }
+        .yellow-paper {
+            background-color: #fefce8;
+            background-image: linear-gradient(rgba(242, 242, 13, 0.1) 1px, transparent 1px);
+            background-size: 100% 1.5rem;
+        }
+        .washi-tape {
+            background-color: rgba(242, 242, 13, 0.4);
+            backdrop-filter: blur(1px);
+            transform: rotate(-2deg);
+        }
+        .highlighter {
+            background: linear-gradient(120deg, rgba(242, 242, 13, 0.4) 0%, rgba(242, 242, 13, 0.7) 100%);
+            padding: 0 0.2rem;
+        }
+        .paper-shadow {
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.05), 0 0 2px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-stone-800 min-h-screen selection:bg-primary/40">
+    <div class="max-w-5xl mx-auto px-6 py-12">
+        <header class="flex justify-between items-center mb-16 relative">
+            <div class="relative">
+                <h1 class="text-3xl font-bold tracking-tight">Briefly, <span class="italic">Arnav</span></h1>
+                <div class="absolute -bottom-1 left-0 w-full h-2 bg-primary/30 -z-10 rotate-1"></div>
+            </div>
+            <nav class="flex gap-8 text-sm font-medium uppercase tracking-widest text-stone-500">
+                <a class="hover:text-stone-900 transition-colors" href="#">Home</a>
+                <a class="text-stone-900 border-b-2 border-primary" href="#">About</a>
+                <a class="hover:text-stone-900 transition-colors" href="#">Archive</a>
+                <a class="hover:text-stone-900 transition-colors" href="#">Connect</a>
+            </nav>
+        </header>
+
+        <main class="grid grid-cols-12 gap-8 relative">
+            <div class="col-span-12 lg:col-span-8">
+                <div class="bg-white p-8 lg:p-12 paper-shadow rounded-sm relative ruled-paper min-h-[800px]">
+                    <div class="absolute -top-4 left-12">
+                        <span class="material-icons text-stone-400 rotate-45 text-4xl">paperclip</span>
+                    </div>
+
+                    <div class="font-typewriter text-sm space-y-1 mb-10 border-b border-stone-200 pb-8 leading-normal">
+                        <p><span class="font-bold">MEMORANDUM</span></p>
+                        <div class="grid grid-cols-[80px_1fr] gap-2 mt-4">
+                            <span class="text-stone-400">TO:</span> <span>The Interested Reader</span>
+                            <span class="text-stone-400">FROM:</span> <span>Arnav Batra, Someone Who Notices Things</span>
+                            <span class="text-stone-400">DATE:</span> <span>Estb. June, 2026</span>
+                            <span class="text-stone-400">SUBJECT:</span> <span class="font-bold underline decoration-primary decoration-4 underline-offset-2">Who is "Briefly, Arnav"?</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6 text-lg relative">
+                        <p>
+                            I'm Arnav — eighteen, finishing school, about to start law school, and apparently someone who <span class="highlighter">can't stop noticing things</span>. I grew up in a tier-2 city, spent too much time on the internet, built things that didn't always work, and somewhere along the way developed a habit of asking why something is the way it is instead of just accepting it.
+                        </p>
+
+                        <div class="relative">
+                            <p>
+                                Some people asked me why I'm writing this. "It doesn't solve any problem," they said. My answer was simple — <span class="highlighter">this is not a business</span>. I just want to write. Briefly, Arnav exists because I observe things that don't add up, and writing is how I make sense of them.
+                            </p>
+                            
+                            <div class="absolute -right-12 lg:-right-32 top-4 w-32 lg:w-40 hidden md:block">
+                                <p class="font-handwriting text-blue-600 text-sm leading-tight rotate-3">
+                                    *Taking legal advice exclusively from Saul Goodman. ⚖️
+                                </p>
+                            </div>
+                        </div>
+
+                        <p>
+                            I'm not here to give you answers. I'm here to <span class="highlighter">ask questions out loud, in public</span>, where you can watch. If you walk away wanting to question something you'd normally just accept — a rule, a system, an assumption — then this page did its job.
+                        </p>
+
+                        <div class="mt-12 pt-8 border-t border-stone-100">
+                            <h3 class="font-typewriter font-bold mb-4 leading-normal">CURRENT FIXATIONS</h3>
+                            <ul class="space-y-3 font-typewriter text-sm leading-normal">
+                                <li class="flex items-start gap-3">
+                                    <span class="text-primary-800 font-bold">§</span>
+                                    <span>Launching Briefly,Arnav</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-primary-800 font-bold">§</span>
+                                    <span>Incoming Law Student</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-primary-800 font-bold">§</span>
+                                    <span>Learning to explore better</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-20 leading-normal">
+                        <p class="font-handwriting text-3xl text-stone-700">Arnav Batra</p>
+                        <p class="text-xs font-typewriter uppercase tracking-widest text-stone-400 mt-2">CERTIFIED OVERTHINKER & LAW STUDENT</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-12 lg:col-span-4 space-y-8">
+                <div class="relative bg-white p-4 paper-shadow rotate-2 group">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-20 h-6 washi-tape z-10 opacity-70"></div>
+                    <div class="aspect-square bg-stone-100 overflow-hidden mb-4 relative">
+                        <img alt="Portrait of Arnav in mountains" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" src="https://images.unsplash.com/photo-1542228262-3d663b306a53?q=80&w=400&auto=format&fit=crop"/>
+                    </div>
+                    <p class="font-handwriting text-center text-stone-500 py-2 text-lg">Mood: Breathing</p>
+                </div>
+
+                <div class="yellow-paper p-6 paper-shadow -rotate-1 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-8 h-8 bg-primary/20 rounded-bl-full"></div>
+                    <h3 class="font-typewriter font-bold text-sm mb-4 border-b border-primary/40 pb-2">CURRENT READS</h3>
+                    <ul class="space-y-4">
+                        <li class="flex gap-3 items-center group">
+                            <div class="w-12 h-16 bg-stone-800 rounded-sm paper-shadow flex-shrink-0 flex items-center justify-center text-[9px] text-white p-1 text-center font-bold">Steve<br>Jobs</div>
+                            <div>
+                                <p class="text-sm font-bold leading-tight">Steve Jobs</p>
+                                <p class="text-[11px] text-stone-500 mt-0.5">Walter Isaacson</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3 items-center group">
+                            <div class="w-12 h-16 bg-stone-200 rounded-sm paper-shadow flex-shrink-0 flex items-center justify-center text-[8px] text-stone-800 p-1 text-center border border-stone-300">Vajpayee</div>
+                            <div>
+                                <p class="text-sm font-bold leading-tight">Vajpayee (up next)</p>
+                                <p class="text-[11px] text-stone-500 mt-0.5">Abhishek Choudhary</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3 items-center group">
+                            <div class="w-12 h-16 bg-primary rounded-sm paper-shadow flex-shrink-0 flex items-center justify-center text-[9px] text-stone-800 p-1 text-center font-bold">Atomic<br>Habits</div>
+                            <div>
+                                <p class="text-sm font-bold leading-tight">Atomic Habits (on the list)</p>
+                                <p class="text-[11px] text-stone-500 mt-0.5">James Clear</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 paper-shadow rotate-1 border-l-4 border-primary">
+                    <h3 class="font-typewriter font-bold text-sm mb-4">QUICK FACTS</h3>
+                    <div class="space-y-4 text-xs">
+                        <div class="flex justify-between items-center pb-2 border-b border-stone-100">
+                            <span class="text-stone-500">Location</span>
+                            <span class="font-medium text-right">Ambala</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-2 border-b border-stone-100">
+                            <span class="text-stone-500">Caffeine</span>
+                            <span class="font-medium text-right">Water(works just fine)</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-2 border-b border-stone-100">
+                            <span class="text-stone-500">Playlist</span>
+                            <span class="font-medium text-right">Karan Aujla Mix</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-stone-500">OS</span>
+                            <span class="font-medium text-right">Windows / Pen & Paper</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative pt-4">
+                    <div class="absolute top-0 left-4 w-12 h-4 washi-tape opacity-60 z-10"></div>
+                    <button class="w-full bg-primary text-stone-900 font-bold py-4 rounded-sm shadow-lg hover:translate-y-[-2px] hover:shadow-xl transition-all uppercase tracking-widest text-sm flex items-center justify-center gap-2">
+                        <span>READ MY BRIEFS</span>
+                        <span class="material-icons text-sm">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="mt-24 pt-12 border-t border-stone-200 text-center space-y-6 pb-12">
+            <div class="flex justify-center gap-6">
+                <a class="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+                    <span class="material-icons text-xl">alternate_email</span>
+                </a>
+                <a class="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+                    <span class="material-icons text-xl">share</span>
+                </a>
+                <a class="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+                    <span class="material-symbols-outlined text-xl">terminal</span>
+                </a>
+            </div>
+            <p class="text-xs font-typewriter text-stone-400 uppercase tracking-widest">
+                © 2026 BRIEFLY,ARNAV ALL RIGHTS RESERVED.
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

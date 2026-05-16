@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Subscribe | Briefly Arnav</title>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet"/>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+<script id="tailwind-config">
+tailwind.config = {
+darkMode: "class",
+theme: {
+extend: {
+colors: {
+primary: "#f2f20d",
+"background-light": "#f8f8f5",
+"background-dark": "#222210",
+},
+fontFamily: {
+display: ["Newsreader", "serif"]
+},
+borderRadius: {"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},
+},
+},
+}
+</script>
+
+<style>
+.corkboard {
+background-color:#e5e5da;
+background-image:radial-gradient(#d1d1c4 1px,transparent 0);
+background-size:20px 20px;
+}
+.legal-pad-lines{
+background-image:linear-gradient(#e1e1d1 1px,transparent 1px);
+background-size:100% 2.5rem;
+}
+.red-margin{
+border-left:2px solid rgba(239,68,68,0.3);
+}
+.notepad-shadow{
+box-shadow:5px 5px 15px rgba(0,0,0,0.1),0 0 5px rgba(0,0,0,0.05);
+}
+.marker-underline{
+box-shadow:inset 0 -0.5em 0 rgba(242,242,13,0.4);
+}
+</style>
+
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-stone-800 dark:text-stone-200 min-h-screen">
+
+<div class="min-h-screen corkboard dark:bg-stone-900/50 py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+
+<header class="text-center mb-16 relative">
+
+<div class="inline-block bg-white dark:bg-stone-800 px-8 py-4 rounded-lg shadow-sm -rotate-1 border border-stone-200 dark:border-stone-700">
+
+<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-stone-900 dark:text-white">
+Subscribe to <span class="marker-underline italic">Briefly, Arnav</span>
+</h1>
+
+<p class="mt-3 text-lg text-stone-600 dark:text-stone-400 font-medium">
+CLAT strategy, mentorship insights, and law school preparation.
+</p>
+
+</div>
+
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 w-24 h-8 bg-primary/30 rotate-2 opacity-50 border border-primary/20"></div>
+
+</header>
+
+
+<div class="max-w-7xl w-full grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+
+<!-- Tier 1 -->
+
+<div class="relative group transition-transform hover:-translate-y-2 duration-300">
+
+<div class="bg-[#fefce8] dark:bg-stone-800 rounded-lg notepad-shadow overflow-hidden border-t-[20px] border-stone-800 rotate-1">
+
+<div class="legal-pad-lines px-8 py-10 min-h-[500px] flex flex-col">
+
+<div class="red-margin pl-6">
+
+<h2 class="text-2xl font-bold mb-1 uppercase tracking-wider">The Observer</h2>
+
+<div class="text-4xl font-black mb-6 italic">Free</div>
+
+<ul class="space-y-4 mb-8">
+
+<li class="flex items-start gap-3">
+<span class="material-icons text-green-600">edit</span>
+<span>CLAT preparation newsletters</span>
+</li>
+
+<li class="flex items-start gap-3">
+<span class="material-icons text-green-600">edit</span>
+<span>Access to CLAT blog articles</span>
+</li>
+
+<li class="flex items-start gap-3 opacity-40">
+<span class="material-icons text-stone-400">close</span>
+<span class="line-through">Mentorship sessions</span>
+</li>
+
+</ul>
+
+</div>
+
+<button onclick="closePopup()" class="mt-auto bg-primary hover:bg-yellow-400 text-stone-900 font-bold py-4 px-6 rounded shadow-md uppercase text-sm">
+Join the Gallery
+</button>
+
+</div>
+</div>
+</div>
+
+
+<!-- Tier 2 -->
+
+<div class="relative group z-20 transition-transform hover:-translate-y-2 duration-300">
+
+<div class="bg-[#ffffda] dark:bg-stone-800 rounded-lg shadow-2xl overflow-hidden border-t-[20px] border-stone-800 scale-105 -rotate-1">
+
+<div class="legal-pad-lines px-8 py-10 min-h-[550px] flex flex-col">
+
+<div class="red-margin pl-6">
+
+<h2 class="text-2xl font-bold mb-1 uppercase tracking-wider">The Paralegal</h2>
+
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-4xl font-black italic">₹299</span>
+<span class="text-stone-500">/month</span>
+</div>
+
+<ul class="space-y-4 mb-8">
+
+<li class="flex items-start gap-3">
+<span class="material-icons text-green-600">edit</span>
+<span class="font-semibold">Weekly CLAT strategy notes</span>
+</li>
+
+<li class="flex items-start gap-3">
+<span class="material-icons text-green-600">edit</span>
+<span>Curated CLAT reading list</span>
+</li>
+
+<li class="flex items-start gap-3">
+<span class="material-icons text-green-600">edit</span>
+<span>Monthly doubt-clearing sessions</span>
+</li>
+
+<li class="flex items-start gap-3">
+<span class="material-icons text-green-600">edit</span>
+<span>Private CLAT discussion group</span>
+</li>
+
+</ul>
+
+</div>
+
+<button onclick="closePopup()" class="mt-auto bg-primary hover:bg-yellow-400 text-stone-900 font-black py-5 px-6 rounded shadow-md uppercase">
+Start Training
+</button>
+
+</div>
+</div>
+</div>
+
+
+<!-- Tier 3 -->
+
+<div class="relative group transition-transform hover:-translate-y-2 duration-300">
+
+<div class="bg-[#fefce8] dark:bg-stone-800 rounded-lg notepad-shadow overflow-hidden border-t-[20px] border-stone-800 rotate-2">
+
+<div class="legal-pad-lines px-8 py-10 min-h-[500px] flex flex-col">
+
+<div class="red-margin pl-6">
+
+<h2 class="text-2xl font-bold mb-1 uppercase tracking-wider">The Partner</h2>
+
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-4xl font-black italic">₹799</span>
+<span class="text-stone-500">/year</span>
+</div>
+
+<ul class="space-y-4 mb-8">
+
+<li class="flex items-start gap-3">
+<span class="material-icons text-green-600">edit</span>
+<span>All Paralegal perks + resource archive</span>
+</li>
+
+<li class="flex items-start gap-3">
+<span class="material-icons text-green-600">edit</span>
+<span class="font-bold underline decoration-primary">Quarterly 1-on-1 CLAT mentorship</span>
+</li>
+
+<li class="flex items-start gap-3">
+<span class="material-icons text-green-600">edit</span>
+<span>Personal preparation roadmap</span>
+</li>
+
+<li class="flex items-start gap-3">
+<span class="material-icons text-green-600">edit</span>
+<span>Exclusive mock analysis sessions</span>
+</li>
+
+</ul>
+
+</div>
+
+<button onclick="closePopup()" class="mt-auto bg-primary hover:bg-yellow-400 text-stone-900 font-bold py-4 px-6 rounded shadow-md uppercase text-sm">
+Take the Lead
+</button>
+
+</div>
+</div>
+</div>
+
+</div>
+
+<footer class="mt-20 text-center text-sm text-stone-500">
+Handcrafted by Arnav
+</footer>
+
+</div>
+
+
+<!-- POPUP -->
+
+<div id="launchNotice" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
+
+<div class="bg-white dark:bg-stone-800 rounded-xl shadow-2xl max-w-xl w-full p-10 text-center border border-stone-300 dark:border-stone-700">
+
+<h2 class="text-3xl font-extrabold mb-4">
+Thank You for showing your interest in <span class="italic marker-underline">Briefly, Arnav</span>
+</h2>
+
+<p class="text-stone-600 dark:text-stone-300 text-lg leading-relaxed mb-6">
+We are currently setting up a few things and this page will be available soon.
+<br><br>
+<strong>For now Briefly, Arnav does not engage in any sorts of monetary transactions.</strong>
+</p>
+
+<button onclick="closePopup()" class="bg-primary hover:bg-yellow-400 text-stone-900 font-bold py-3 px-6 rounded shadow-md uppercase text-sm">
+Got it
+</button>
+
+</div>
+
+</div>
+
+
+<script>
+function closePopup(){
+document.getElementById("launchNotice").style.display="none";
+}
+</script>
+
+</body>
+</html>
